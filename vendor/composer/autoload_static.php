@@ -7,9 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInit8bfdcd5ce2ff64964f0efd6129163e26
 {
     public static $prefixLengthsPsr4 = array (
-        'D' => 
+        'T' => 
         array (
-            'Demo\\Tamnx\\' => 11,
+            'Tamnx\\Demo\\' => 11,
         ),
         'A' => 
         array (
@@ -18,9 +18,9 @@ class ComposerStaticInit8bfdcd5ce2ff64964f0efd6129163e26
     );
 
     public static $prefixDirsPsr4 = array (
-        'Demo\\Tamnx\\' => 
+        'Tamnx\\Demo\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/packages/devdojo/calculator/src',
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'App\\' => 
         array (
