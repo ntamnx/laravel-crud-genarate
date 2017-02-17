@@ -1,0 +1,20 @@
+{
+    "name": "tamnx/demo",
+    "description": "this is package demo.",
+    "type": "library",
+    "license": "None",
+    "authors": [
+        {
+            "name": "tamnx",
+            "email": "ntamnx@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Demo\\Tamnx\\": "packages/devdojo/calculator/src"
+        }
+    }
+}
