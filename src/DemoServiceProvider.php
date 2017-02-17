@@ -23,6 +23,6 @@ class DemoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->make(CalculatorController::class);
     }
 }
