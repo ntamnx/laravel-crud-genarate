@@ -1,7 +1,7 @@
 <?php
 
-Route::get('tamnx/demo', function(){
+Route::get('tamnx/demo/create', function(){
 	echo 'Hello from the calculator package!';
 });
-Route::get('add/{a}/{b}', 'Tamnx\Demo\CalculatorController@add');
-Route::get('subtract/{a}/{b}', 'Tamnx\DemoCalculatorController@subtract');
+Route::get('tamnx/crud/create', 'Tamnx\Demo\CalculatorController@create');
+Route::post('tamnx/crud/store', 'Tamnx\Demo\CalculatorController@store');

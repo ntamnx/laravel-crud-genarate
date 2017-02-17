@@ -1,6 +1,6 @@
 <?php
 
-namespace Demo\Tamnx;
+namespace Tamnx\Demo;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +23,7 @@ class DemoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make(CalculatorController::class);
+       $this->app->make(CalculatorController::class);
+        $this->loadViewsFrom(__DIR__.'/views', 'views');
     }
 }
