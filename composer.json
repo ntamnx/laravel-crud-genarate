@@ -3,6 +3,7 @@
     "description": "this is package demo.",
     "type": "library",
     "license": "None",
+    "version": "2.0.0",
     "authors": [
         {
             "name": "tamnx",
