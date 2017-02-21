@@ -31,6 +31,7 @@ class CalculatorController extends Controller {
      */
     public function store(Request $request) {
         $data = $request->all();
+        dd($data);
         $this->makeModel($data);
         $this->makeRepository($data);
         $this->makeController($data);
@@ -55,17 +56,24 @@ class CalculatorController extends Controller {
                 $fillable = '';
                 foreach ($data['value'] as $item) {
                     $ruleOfField = '';
-                    foreach ($item['ck_column'] as $index => $rule) {
-                        if ($index === 0) {
-                            $ruleOfField .= $rule;
-                        }
-                        if ($index === 1) {
-                            $ruleOfField.='|' . $rule . ',' . $item['ck_column_table'] . ',' . $item['ck_column_column'];
+                    if (isset($item['ck_column'])) {
+                        foreach ($item['ck_column'] as $index => $rule) {
+                            if ($rule === 0) {
+                                if ($rule == "required") {
+                                    $ruleOfField .= $rule;
+                                } else {
+                                     $ruleOfField .= $rule . ',' . $item['ck_column_table'] . ',' . $item['ck_column_column'];;
+                                }
+                            }
+                            if ($index === 1) {
+                                $ruleOfField.='|' . $rule . ',' . $item['ck_column_table'] . ',' . $item['ck_column_column'];
+                            }
                         }
                     }
                     $rules.= "\t'" . $item['column'] . "'" . '=>' . "'" . $ruleOfField . "'" . ',' . "\n";
                     $fillable .= "\t'" . $item['column'] . "'" . ',' . "\n";
                 }
+
                 $contentArray['name']     = $data['nameModel'];
                 $contentArray['rules']    = $rules;
                 $contentArray['fillable'] = $fillable;
