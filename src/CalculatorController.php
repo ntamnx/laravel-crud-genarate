@@ -31,7 +31,6 @@ class CalculatorController extends Controller {
      */
     public function store(Request $request) {
         $data = $request->all();
-        dd($data);
         $this->makeModel($data);
         $this->makeRepository($data);
         $this->makeController($data);
