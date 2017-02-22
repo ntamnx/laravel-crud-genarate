@@ -181,7 +181,6 @@ $(function () {
             $('.required1').each(function () {
                 $(this).rules('add', 'required');
             });
-
         });
     </script>
 </body>

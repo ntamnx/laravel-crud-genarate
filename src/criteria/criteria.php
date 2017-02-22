@@ -12,5 +12,40 @@
  * @author nguyen.xuan.tam
  */
 class criteria {
-    //put your code here
+
+    public static function criteriaWrite($data = array()) {
+        $model = "<?php
+            
+namespace App\Criteria;
+
+use Prettus\Repository\Contracts\CriteriaInterface;
+use Prettus\Repository\Contracts\RepositoryInterface;
+use Illuminate\Http\Request;
+
+class " . $data['name'] . " implements CriteriaInterface {
+
+    protected " . "$" . "request;
+    public function __construct(Request " . "$" . "request) {
+        " . "$" . "this->request = " . "$" . "request;
+    }
+    /**
+     * Apply criteria in query repository
+     *
+     * @param                     " . "$" . "model
+     * @param RepositoryInterface " . "$" . "repository
+     *
+     * @return mixed
+     */
+    public function apply(" . "$" . "model, RepositoryInterface " . "$" . "repository) {
+        " . "$" . "keyword = " . "$" . "this->request->get('keyword');
+        if (!isset(" . "$" . "keyword)) {
+            return " . "$" . "model;
+        }
+        " . "$" . "model = " . "$" . "model->where('keyword', '=', " . "$" . "keyword);
+        return " . "$" . "model;;
+    }
+}";
+        return $model;
+    }
+
 }

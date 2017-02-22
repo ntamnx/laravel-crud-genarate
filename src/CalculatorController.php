@@ -38,6 +38,9 @@ class CalculatorController extends Controller {
         $this->makeViewAdd($data);
         $this->makeViewEdit($data);
         $this->makeViewShow($data);
+        if (isset($data['criteria'])) {
+            $this->makeCriteria($data);
+        }
     }
 
     /**
@@ -57,11 +60,12 @@ class CalculatorController extends Controller {
                     $ruleOfField = '';
                     if (isset($item['ck_column'])) {
                         foreach ($item['ck_column'] as $index => $rule) {
-                            if ($index === 0) {
+                            if ($rule === 0) {
                                 if ($rule == "required") {
                                     $ruleOfField .= $rule;
                                 } else {
                                     $ruleOfField .= $rule . ',' . $item['ck_column_table'] . ',' . $item['ck_column_column'];
+                                    ;
                                 }
                             }
                             if ($index === 1) {
@@ -86,18 +90,12 @@ class CalculatorController extends Controller {
             $fillable   = '';
             foreach ($data['value'] as $item) {
                 $ruleOfField = '';
-                if (isset($item['ck_column'])) {
-                    foreach ($item['ck_column'] as $index => $rule) {
-                        if ($index === 0) {
-                            if ($rule == "required") {
-                                $ruleOfField .= $rule;
-                            } else {
-                                $ruleOfField .= $rule . ',' . $item['ck_column_table'] . ',' . $item['ck_column_column'];
-                            }
-                        }
-                        if ($index === 1) {
-                            $ruleOfField.='|' . $rule . ',' . $item['ck_column_table'] . ',' . $item['ck_column_column'];
-                        }
+                foreach ($item['ck_column'] as $index => $rule) {
+                    if ($index === 0) {
+                        $ruleOfField .= $rule;
+                    }
+                    if ($index === 1) {
+                        $ruleOfField.='|' . $rule . ',' . $item['ck_column_table'] . ',' . $item['ck_column_column'];
                     }
                 }
                 $rules.= "\t'" . $item['column'] . "'" . '=>' . "'" . $ruleOfField . "'" . ',' . "\n";
@@ -176,7 +174,21 @@ class CalculatorController extends Controller {
      * @function make Criteria for search
      */
     private function makeCriteria($data = array()) {
-        
+        $path = base_path() . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Criteria';
+        if (\File::isDirectory($path)) {
+            $pathToFile = $path . DIRECTORY_SEPARATOR . ucfirst($data['nameModel'] . 'Criteria') . '.php';
+            if (!\File::exists($pathToFile)) {
+                $contentArray['name'] = $data['nameModel'];
+                $content              = \criteria::criteriaWrite($contentArray);
+                \File::put($pathToFile, $content);
+            }
+        } else {
+            \File::makeDirectory($path, 0777, true, true);
+            $pathToFile           = $path . DIRECTORY_SEPARATOR . ucfirst($data['nameModel'] . 'Criteria') . '.php';
+            $contentArray['name'] = $data['nameModel'];
+            $content              = \criteria::criteriaWrite($contentArray);
+            \File::put($pathToFile, $content);
+        }
     }
 
     /**

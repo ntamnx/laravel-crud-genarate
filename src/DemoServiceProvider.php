@@ -19,6 +19,7 @@ class DemoServiceProvider extends ServiceProvider {
         include __DIR__ . '/views/index.php';
         include __DIR__ . '/views/add.php';
         include __DIR__ . '/views/edit.php';
+        include __DIR__ . '/criteria/criteria.php';
         include __DIR__ . '/views/show.php';
     }
 
