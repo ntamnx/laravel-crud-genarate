@@ -198,7 +198,7 @@ class CalculatorController extends Controller {
      * @functione make view list.
      */
     private function makeViewList($data = array()) {
-        $path         = base_path() . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . lcfirst($data['nameModel']);
+        $path         = base_path() . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . lcfirst($data['nameModel']).'s';
         $buildHead    = '';
         $buildContent = '';
         foreach ($data['value'] as $item) {
@@ -244,7 +244,7 @@ class CalculatorController extends Controller {
      * @functione make view add.
      */
     private function makeViewAdd($data = array()) {
-        $path         = base_path() . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . lcfirst($data['nameModel']);
+        $path         = base_path() . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . lcfirst($data['nameModel']).'s';
         $buildContent = '';
         foreach ($data['value'] as $item) {
             $buildContent .= "
@@ -277,7 +277,7 @@ class CalculatorController extends Controller {
      * @functione make view edit.
      */
     private function makeViewEdit($data = array()) {
-        $path         = base_path() . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . lcfirst($data['nameModel']);
+        $path         = base_path() . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . lcfirst($data['nameModel']).'s';
         $buildContent = '';
         foreach ($data['value'] as $item) {
             $buildContent .= "
@@ -310,7 +310,7 @@ class CalculatorController extends Controller {
      * @functione make view show.
      */
     private function makeViewShow($data = array()) {
-        $path         = base_path() . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . lcfirst($data['nameModel']);
+        $path         = base_path() . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . lcfirst($data['nameModel']).'s';
         $buildContent = '';
         foreach ($data['value'] as $item) {
             $buildContent .= "

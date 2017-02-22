@@ -47,7 +47,7 @@ class " . $data['name'] . "Controller  extends Controller {
     public function index(Request " . "$" . "request) {
         " . "$" . "this->" . lcfirst($data['name']) . "Repository->pushCriteria(new RequestCriteria(" . "$" . "request));
         " . "$" . lcfirst($data['name']) . " = " . "$" . "this->" . lcfirst($data['name']) . "Repository->paginate(config('common.page_size'));
-        return view('" . lcfirst($data['name']) . ".index')
+        return view('" . lcfirst($data['name']) . "s.index')
                         ->with('" . lcfirst($data['name']) . "'," . "$" . lcfirst($data['name']) . ");
     }
     /**
@@ -56,7 +56,7 @@ class " . $data['name'] . "Controller  extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-       return view('" . lcfirst($data['name']) . ".add');
+       return view('" . lcfirst($data['name']) . "s.add');
     }
     /**
      * Store a newly created resource in storage.
@@ -78,7 +78,7 @@ class " . $data['name'] . "Controller  extends Controller {
      */
     public function show(" . "$" . "id) {
         " . "$" . lcfirst($data['name']) . " = " . "$" . "this->" . lcfirst($data['name']) . "Repository->find(" . "$" . "id);
-        return view('" . lcfirst($data['name']) . ".show')
+        return view('" . lcfirst($data['name']) . "s.show')
                         ->with('" . lcfirst($data['name']) . "',  " . "$" . lcfirst($data['name']) . ");
     }
     /**
@@ -89,7 +89,7 @@ class " . $data['name'] . "Controller  extends Controller {
      */
     public function edit(" . "$" . "id) {
         " . "$" . lcfirst($data['name']) . " = " . "$" . "this->" . lcfirst($data['name']) . "Repository->find(" . "$" . "id);
-        return view('" . lcfirst($data['name']) . ".edit')
+        return view('" . lcfirst($data['name']) . "s.edit')
                         ->with('" . lcfirst($data['name']) . "',  " . "$" . lcfirst($data['name']) . ");
     }
     /**
