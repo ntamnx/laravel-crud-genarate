@@ -34,8 +34,11 @@ class CalculatorController extends Controller {
         $data = $request->all();
         $this->makeModel($data);
         $this->makeRepository($data);
+
         $this->makeController($data);
+
         $this->makeViewList($data);
+
         $this->makeViewAdd($data);
         $this->makeViewEdit($data);
         $this->makeViewShow($data);

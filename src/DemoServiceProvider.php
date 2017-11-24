@@ -14,7 +14,9 @@ class DemoServiceProvider extends ServiceProvider {
     public function boot() {
         include __DIR__ . '/routes.php';
         include __DIR__ . '/model/model.php';
+
         include __DIR__ . '/repository/repository.php';
+
         include __DIR__ . '/controller/controller.php';
         include __DIR__ . '/views/index.php';
         include __DIR__ . '/views/add.php';
