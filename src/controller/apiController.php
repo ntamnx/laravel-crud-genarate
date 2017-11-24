@@ -21,6 +21,7 @@ class controller {
     public static function controllerWrite($data = array()) {
 
         $controller = "<?php
+        
             
 namespace App\Http\Controllers;
 
